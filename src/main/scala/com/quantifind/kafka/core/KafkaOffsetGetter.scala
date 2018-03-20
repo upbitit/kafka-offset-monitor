@@ -47,7 +47,7 @@ class KafkaOffsetGetter(zkUtilsWrapper: ZkUtilsWrapper, args: OffsetGetterArgs) 
 		val optionalOffsetMetaData: Option[OffsetAndMetadata] = committedOffsetMap.get(GroupTopicPartition(group, topicAndPartition))
 
 		if (!optionalOffsetMetaData.isDefined) {
-			error(s"processPartition: Could not find group-topic-partition in committedOffsetsMap, g:$group,t:$topic,p:$partitionId")
+//			error(s"processPartition: Could not find group-topic-partition in committedOffsetsMap, g:$group,t:$topic,p:$partitionId")
 			return None
 		}
 
@@ -369,7 +369,7 @@ object KafkaOffsetGetter extends Logging {
 							val partition: Long = gtp.topicPartition.partition
 							val offset: Long = offsetAndMetadata.offset
 
-							info(s"Updating committed offset: g:$group,t:$topic,p:$partition: $offset")
+//							info(s"Updating committed offset: g:$group,t:$topic,p:$partition: $offset")
 							committedOffsetMap += messageOffsetMap
 						}
 					}
