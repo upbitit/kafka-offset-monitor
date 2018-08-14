@@ -17,5 +17,4 @@ RUN sbt assembly && \
     rm -rf ~/.sbt
 
 # Set environment variables and run
-CMD exec java -cp /usr/src/app/app.jar com.quantifind.kafka.offsetapp.OffsetGetterWeb --offsetStorage kafka --port $PORT --kafkaBrokers $KAFKA_BROKERS --zk $ZK --refresh $REFRESH --retain $RETAIN
-
+CMD exec java -cp /usr/src/app/app.jar com.quantifind.kafka.offsetapp.OffsetGetterWeb --offsetStorage $OFFSET_STORAGE --port $PORT --kafkaBrokers $KAFKA_BROKERS --zk $ZK --refresh $REFRESH --retain $RETAIN
